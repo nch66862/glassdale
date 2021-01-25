@@ -1,0 +1,22 @@
+.criminalsList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.criminal {
+    border: solid black 1px;
+    margin: 10px;
+    width: 25%;
+}
+
+h3 {
+    margin: 10px 10px 10px 10px;
+}
+
+p {
+    margin: 5px;
+}
+
+h4 {
+    margin: 10px;
+}
