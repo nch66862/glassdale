@@ -1,19 +1,19 @@
 let officers = []
 
 export const useOfficers = () => {
-    return officers.slice()
+  return officers.slice()
 }
 
 export const getOfficers = () => {
-    //request the data -- fetch
-    //convert the JSON string response to a JavaScript data structure (object or array) -- first .then
-    //do something with the data -- second .then
-    return fetch("https://criminals.glassdale.us/officers")
-        .then(response => response.json())
-        .then(
-            parsedOfficers => {
-                console.table(parsedOfficers)
-                officers = parsedOfficers
-            }
-        )
+  /*
+      Load database state into application state with a fetch().
+      Make sure the last then() updates the officers array
+  */
+  return fetch("https://criminals.glassdale.us/officers")
+    .then(response => response.json())
+    .then(parsedResponse => {
+      console.table(parsedResponse)
+      officers = parsedResponse
+    })
+
 }
