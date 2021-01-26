@@ -38,7 +38,7 @@ const eventHub = document.querySelector(".container")
 eventHub.addEventListener("change", event => {
 
     if (event.target.id === "crimeSelect") {
-        // Create custom event. Provide an appropriate name.
+        
         const customEvent = new CustomEvent("crimeChosen", {
             detail: {
                 crimeThatWasChosen: event.target.value
