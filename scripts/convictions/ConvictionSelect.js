@@ -42,7 +42,7 @@ const render = convictionsCollection => {
     Which element in your HTML contains all components?
     That's your Event Hub. Get a reference to it here.
 */
-const eventHub = document.querySelector(you_fill_this_in)
+const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".filters__crime")
 
 // On the event hub, listen for a "change" event.
