@@ -43,7 +43,6 @@ const render = convictionsCollection => {
     That's your Event Hub. Get a reference to it here.
 */
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".filters__crime")
 
 // On the event hub, listen for a "change" event.
 eventHub.addEventListener("change", event => {
@@ -61,22 +60,3 @@ eventHub.addEventListener("change", event => {
         eventHub.dispatchEvent(customEvent)
     }
 })
-
-
-const render = convictionsCollection => {
-    contentTarget.innerHTML = `
-        <select class="dropdown" id="crimeSelect">
-            <option value="0">Please select a crime...</option>
-            ... you wrote awesome code here ...
-        </select>
-    `
-}
-
-
-export const ConvictionSelect = () => {
-    getConvictions()
-        .then(() => {
-            const convictions = useConvictions()
-            render(convictions)
-        })
-}
