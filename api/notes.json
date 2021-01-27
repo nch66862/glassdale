@@ -33,6 +33,20 @@
       "suspects": "myself",
       "note": "this aint gonna work",
       "id": 6
+    },
+    {
+      "date": "2021-01-30",
+      "subject": "Herman's Interview",
+      "suspects": "Herman",
+      "note": "He said he would say who did it for $5",
+      "id": 7
+    },
+    {
+      "date": "2021-01-16",
+      "subject": "James",
+      "suspects": "Nathanael",
+      "note": "Nate has been locked up a while.",
+      "id": 8
     }
   ]
 }

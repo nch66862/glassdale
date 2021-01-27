@@ -16,12 +16,8 @@ export const CriminalList = () => {
 
 const eventHub = document.querySelector(".container") //specify the outer container as the event hub
 
-let crimeChosen = false //create a flag for an active filter
-let officerChosen = false //create a flag for an active filter
-
 eventHub.addEventListener("crimeChosen", event => { //listen for the custom event from ConvictionSelect.js
   if (event.detail.crimeThatWasChosen !== "0"){ //checks that something other than the top box with no value was selected
-    crimeChosen = true //set a flag for the other filters
     const convictionsArray = useConvictions() // Get a copy of the array of convictions from the data provider
     const convictionThatWasChosen = convictionsArray.find(convictionObj => { // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
       return convictionObj.id === parseInt(event.detail.crimeThatWasChosen) //parseInt changes the string to a number so the data type matches. It was a string because if came from an HTML element. 
@@ -33,13 +29,11 @@ eventHub.addEventListener("crimeChosen", event => { //listen for the custom even
     )
     render(matchingCriminals) //put those filtered criminals on the web page
     }
-  else { crimeChosen = false }
   }
 )
 
 eventHub.addEventListener("officerChosen", event => { //listen for the custom event from OfficerSelect.js
   if (event.detail.officerThatWasChosen !== "0"){ //checks that something other than the top box with no value was selected
-    crimeChosen = true //set a flag for the other filters
     const officerArray = useOfficers() // Get a copy of the array of convictions from the data provider
     const officerThatWasChosen = officerArray.find(officerObj => { // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
       return officerObj.id === parseInt(event.detail.officerThatWasChosen) //parseInt changes the string to a number so the data type matches. It was a string because if came from an HTML element. 

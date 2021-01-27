@@ -24,3 +24,11 @@ h4 {
 .filters {
     display: flex;
 }
+
+.contentContainer {
+    display: flex;
+}
+
+.note {
+    margin: 10px;
+}
