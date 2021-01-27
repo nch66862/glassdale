@@ -20,3 +20,7 @@ p {
 h4 {
     margin: 10px;
 }
+
+.filters {
+    display: flex;
+}
