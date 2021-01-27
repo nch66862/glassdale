@@ -1,20 +1,16 @@
-/*
- *   ConvictionSelect component that renders a select HTML element
- *   which lists all convictions in the Glassdale PD API
- */
-import { useConvictions } from "./ConvictionProvider.js"
-import { getConvictions } from "./ConvictionProvider.js"
+// ConvictionSelect component that renders a select HTML element
+// which lists all convictions in the Glassdale PD API
+ 
+import { useConvictions } from "./ConvictionProvider.js" //the copy of the parsed returned array
+import { getConvictions } from "./ConvictionProvider.js" //The api data call to get convictions
 
-// Get a reference to the DOM element where the <select> will be rendered
-const contentTarget = document.querySelector(".filters__crime")
+const contentTarget = document.querySelector(".filters__crime") // Get a reference to the DOM element where the <select> will be rendered
 
 export const ConvictionSelect = () => {
-    // Trigger fetching the API data and loading it into application state
-    getConvictions()
-    .then( () => {
-      // Get all convictions from application state
-      const convictions = useConvictions()
-      render(convictions)
+    getConvictions() // Trigger fetching the API data and loading it into application state
+    .then( () => { //.then says wait for data to come back
+      const convictions = useConvictions() // Get all convictions from application state
+      render(convictions) //build out the select element HTML
     })
 }
 
@@ -23,28 +19,28 @@ const render = convictionsCollection => {
         <select class="dropdown" id="crimeSelect">
             <option value="0">Please select a crime...</option>
             ${
-                convictionsCollection.map(convictionObject => {
+                convictionsCollection.map(convictionObject => { //build out each option element inside the select box
                     const crime = convictionObject.name
                     const crimeIndex = convictionObject.id
                     return `<option value="${crimeIndex}">${crime}</option>`
-                }).join("")
+                }).join("") //take out the commas in the HTML
             }
         </select>
     `
 }
 
-const eventHub = document.querySelector(".container")
+const eventHub = document.querySelector(".container") //define what the eventHub will be (needs to be the same across the application)
 
 eventHub.addEventListener("change", event => {
 
-    if (event.target.id === "crimeSelect") {
+    if (event.target.id === "crimeSelect") { //crimeSelect is an ID on the select element for convictions
         
-        const customEvent = new CustomEvent("crimeChosen", {
+        const customEvent = new CustomEvent("crimeChosen", { //create a custome event. This is specific to choosing a crime from the dropdown menu
             detail: {
-                crimeThatWasChosen: event.target.value
+                crimeThatWasChosen: event.target.value //assigns the value specified in each option element to this variable crimeThatWasChosen
             }
         })
 
-        eventHub.dispatchEvent(customEvent)
+        eventHub.dispatchEvent(customEvent) //sends the crimeChosen custom event out to all my files in case they are listening
     }
 })

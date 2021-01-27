@@ -1,4 +1,4 @@
-export const Criminal = (criminalObj) => {
+export const Criminal = (criminalObj) => { //takes a criminal object and uses its key-value pairs to fill in some HTML
     return `
         <article class="criminal">
             <h4>${criminalObj.name}</h4>
