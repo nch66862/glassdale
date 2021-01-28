@@ -4,7 +4,6 @@ const eventHub = document.querySelector(".container")
 
 const dispatchStateChangeEvent = () => {
     const noteStateChangedEvent = new CustomEvent("noteStateChanged")
-
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
 

@@ -1,52 +1,18 @@
 {
   "notes": [
     {
+      "date": "2021-01-28",
+      "subject": "Nick Carver",
+      "suspects": "None",
+      "note": "This is my first note.",
       "id": 1
     },
     {
+      "date": "2021-01-07",
+      "subject": "test",
+      "suspects": "myself",
+      "note": "this aint gonna work",
       "id": 2
-    },
-    {
-      "date": "2021-01-27",
-      "subject": "test",
-      "suspects": "myself",
-      "note": "this aint gonna work",
-      "id": 3
-    },
-    {
-      "date": "2021-01-27",
-      "subject": "test",
-      "suspects": "myself",
-      "note": "this aint gonna work",
-      "id": 4
-    },
-    {
-      "date": "2021-01-27",
-      "subject": "test",
-      "suspects": "myself",
-      "note": "this aint gonna work",
-      "id": 5
-    },
-    {
-      "date": "2021-01-27",
-      "subject": "test",
-      "suspects": "myself",
-      "note": "this aint gonna work",
-      "id": 6
-    },
-    {
-      "date": "2021-01-30",
-      "subject": "Herman's Interview",
-      "suspects": "Herman",
-      "note": "He said he would say who did it for $5",
-      "id": 7
-    },
-    {
-      "date": "2021-01-16",
-      "subject": "James",
-      "suspects": "Nathanael",
-      "note": "Nate has been locked up a while.",
-      "id": 8
     }
   ]
 }

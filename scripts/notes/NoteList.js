@@ -10,15 +10,19 @@ eventHub.addEventListener("showNotesClicked", customEvent => {
     NoteList()
 })
 
+eventHub.addEventListener("noteStateChanged", customEvent => {
+    if (contentTarget.innerHTML !== "") {
+        NoteList()
+    }
+})
+
 const render = (noteArray) => {
     const allNotesConvertedToStrings = noteArray.map( note => {
         return NoteHTMLConverter(note)
     }).join("")
-    
     contentTarget.innerHTML = allNotesConvertedToStrings
 }
 
-// Standard list function you're used to writing by now. BUT, don't call this in main.js! Why not?
 export const NoteList = () => {
     getNotes()
         .then(() => {

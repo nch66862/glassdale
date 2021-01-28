@@ -6,7 +6,21 @@ export const Criminal = (criminalObj) => { //takes a criminal object and uses it
             <p>Conviction: ${criminalObj.conviction}</p>
             <p>Term Start: ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')}</p>
             <p>Term End: ${new Date(criminalObj.incarceration.end).toLocaleDateString('en-US')}</p>
-            <button id="associates--${criminalObj.id}">Associate Alibis</button>
+            <button class="associateButton" id="associates--${criminalObj.id}">Associate Alibis</button>
         </article>
     `
-  }  
+}
+
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("associates--")) {
+        const [prefix, criminalID] = clickEvent.target.id.split("--")
+        const criminalAlibiChosenEvent = new CustomEvent("criminalAlibiChosen", {
+            detail: {
+                alibiID: criminalID
+            }
+        })
+        eventHub.dispatchEvent(criminalAlibiChosenEvent)
+    }
+})
