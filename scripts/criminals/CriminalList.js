@@ -48,19 +48,6 @@ eventHub.addEventListener("officerChosen", event => { //listen for the custom ev
   }
 )
 
-//MODIFY THIS CODE THAT WAS COPIED FROM SOMEWHERE ELSE
-eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("btnTheme--")) {
-      const [prefix, chosenColor] = clickEvent.target.id.split("--")
-      const colorChosenEvent = new CustomEvent("colorChosen", {
-          detail: {
-              color: chosenColor
-          }
-      })
-      eventHub.dispatchEvent(colorChosenEvent)
-  }
-})
-
 const criminalsContainer = document.querySelector(".criminalsContainer") //specify where I want the criminals to render
 
 const render = criminalArray => { //puts the html structure in the correct element so it shows up on the web page

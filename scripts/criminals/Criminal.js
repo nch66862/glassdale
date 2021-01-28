@@ -9,4 +9,16 @@ export const Criminal = (criminalObj) => { //takes a criminal object and uses it
             <button id="associates--${criminalObj.id}">Associate Alibis</button>
         </article>
     `
-}  
+}
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("associates--")) {
+        const [prefix, criminalID] = clickEvent.target.id.split("--")
+        const criminalAlibiChosenEvent = new CustomEvent("criminalAlibiChosen", {
+            detail: {
+                alibiID: criminalID
+            }
+        })
+        eventHub.dispatchEvent(criminalAlibiChosenEvent)
+    }
+})
