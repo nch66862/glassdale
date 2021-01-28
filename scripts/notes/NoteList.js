@@ -20,7 +20,6 @@ const render = (noteArray) => {
     const allNotesConvertedToStrings = noteArray.map( note => {
         return NoteHTMLConverter(note)
     }).join("")
-    
     contentTarget.innerHTML = allNotesConvertedToStrings
 }
 

@@ -37,5 +37,9 @@ eventHub.addEventListener("click", clickEvent => {
         }
         // Change API state and application state
         saveNote(newNote)
+        document.getElementById("note-date").value = ""
+        document.getElementById("note-subject").value = ""
+        document.getElementById("note-suspects").value = ""
+        document.getElementById("note-text").value = ""
     }
 })
