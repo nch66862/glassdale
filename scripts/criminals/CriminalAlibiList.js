@@ -15,7 +15,7 @@ eventHub.addEventListener("criminalAlibiChosen", customEvent => {
         }
         )
         knownAssociatesArray = criminalthatWasChosen.known_associates
-        render(knownAssociatesArray, completeCriminalArray)
+        render(knownAssociatesArray, criminalthatWasChosen)
     }
     )
 })
@@ -25,30 +25,18 @@ const render = (selectedCriminalAssociates, selectedCriminal) => {
     const alibiConvertedToString = `
         <h3>Criminal Alibi</h3>
         <h4>Selected Criminal: ${selectedCriminal.name}</h4>
-        <h5>Known Associates</h5>
-        ${nameOfAssociatesHTMLBuilder(selectedCriminalAssociates)}
-        <h5>Alibi</h5>
-        ${alibiofAssociatesHTMLBuilder(selectedCriminalAssociates)}
+        <h5>Known Associates and their Alibi</h5>
+        ${AssociatesHTMLBuilder(selectedCriminalAssociates)}
     `
     contentTarget.innerHTML = alibiConvertedToString
 }
 
-const nameOfAssociatesHTMLBuilder = associatesArray => {
-    let nameHTML = ""
+const AssociatesHTMLBuilder = associatesArray => {
+    let hTML = ""
     for (const associate of associatesArray) {
-        nameHTML += `
-        <p>${associate.name}
+        hTML += `
+        <p>${associate.name}: ${associate.alibi}</p>
         `
     }
-    return nameHTML
-}
-const alibiofAssociatesHTMLBuilder = associatesArray => {
-    let alibiHTML = ""
-    for (const associate of associatesArray) {
-        alibiHTML += `
-        <p>${associate.alibi}
-        `
-    }
-    return alibiHTML
-
+    return hTML
 }
