@@ -48,6 +48,13 @@ eventHub.addEventListener("officerChosen", event => { //listen for the custom ev
   }
 )
 
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id === "showNotes") {
+      const customEvent = new CustomEvent("showNotesClicked")
+      eventHub.dispatchEvent(customEvent)
+  }
+})
+
 const criminalsContainer = document.querySelector(".criminalsContainer") //specify where I want the criminals to render
 
 const render = criminalArray => { //puts the html structure in the correct element so it shows up on the web page

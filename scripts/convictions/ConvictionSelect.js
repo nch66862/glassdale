@@ -32,15 +32,12 @@ const render = convictionsCollection => {
 const eventHub = document.querySelector(".container") //define what the eventHub will be (needs to be the same across the application)
 
 eventHub.addEventListener("change", event => {
-
     if (event.target.id === "crimeSelect") { //crimeSelect is an ID on the select element for convictions
-        
         const customEvent = new CustomEvent("crimeChosen", { //create a custome event. This is specific to choosing a crime from the dropdown menu
             detail: {
                 crimeThatWasChosen: event.target.value //assigns the value specified in each option element to this variable crimeThatWasChosen
             }
         })
-
         eventHub.dispatchEvent(customEvent) //sends the crimeChosen custom event out to all my files in case they are listening
     }
 })
