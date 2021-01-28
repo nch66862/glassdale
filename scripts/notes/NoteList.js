@@ -19,7 +19,7 @@ const render = (noteArray) => {
 }
 
 // Standard list function you're used to writing by now. BUT, don't call this in main.js! Why not?
-const NoteList = () => {
+export const NoteList = () => {
     getNotes()
         .then(() => {
             const allNotes = useNotes()

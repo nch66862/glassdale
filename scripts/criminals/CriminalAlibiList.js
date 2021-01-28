@@ -1,5 +1,4 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js";
-import { NoteHTMLConverter } from "./Note.js";
 
 const contentTarget = document.querySelector(".alibiContainer")
 const eventHub = document.querySelector(".container")

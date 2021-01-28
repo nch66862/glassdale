@@ -11,6 +11,8 @@ export const Criminal = (criminalObj) => { //takes a criminal object and uses it
     `
 }
 
+const eventHub = document.querySelector(".container")
+
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("associates--")) {
         const [prefix, criminalID] = clickEvent.target.id.split("--")
