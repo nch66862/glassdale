@@ -9,4 +9,4 @@ export const Criminal = (criminalObj) => { //takes a criminal object and uses it
             <button id="associates--${criminalObj.id}">Associate Alibis</button>
         </article>
     `
-  }  
+}  
