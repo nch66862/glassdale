@@ -5,11 +5,11 @@ const eventHub = document.querySelector(".container")
 
 let completeCriminalArray = []
 
-eventHub.addEventListener("showAlibiClicked", customEvent => {
+eventHub.addEventListener("criminalAlibiChosen", customEvent => {
     getCriminals()
     .then( () => {
         completeCriminalArray = useCriminals()
-        const criminalThatWasChosen = completeCriminalArray.find(criminalObj => { // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
+        const criminalthatWasChosen = completeCriminalArray.find(criminalObj => { // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
             return criminalObj.id === parseInt(customEvent.detail.criminalID) //parseInt changes the string to a number so the data type matches. It was a string because if came from an HTML element. 
         }
         )
