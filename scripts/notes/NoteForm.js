@@ -6,6 +6,7 @@ const render = () => {
     contentTarget.innerHTML = `
     <form class="notesForm" action="">
         <h3>Make a Note</h3>
+        <label for="note-date">Date:</label>
         <input type="date" name="data-date" id="note-date">
         <p>Subject</p>
         <input type="text" id="note-subject" name="data-subject"></input>
