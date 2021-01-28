@@ -6,15 +6,12 @@ const contentTarget = document.querySelector(".noteList")
 // Define ye olde Evente Hubbe
 const eventHub = document.querySelector(".container")
 
-let notesAreShowingFlag = false
-
 eventHub.addEventListener("showNotesClicked", customEvent => {
     NoteList()
-    notesAreShowingFlag = true
 })
 
 eventHub.addEventListener("noteStateChanged", customEvent => {
-    if (notesAreShowingFlag === true) {
+    if (contentTarget.innerHTML !== "") {
         NoteList()
     }
 })
