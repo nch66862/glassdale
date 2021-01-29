@@ -6,7 +6,9 @@ import { NoteForm } from "./notes/NoteForm.js";
 import { ShowNoteButton } from "./notes/ShowNotesButton.js";
 import "./notes/NoteList.js";
 import "./criminals/CriminalAlibiList.js"
+import { ShowHeader } from "./header/Header.js";
 
+ShowHeader()
 OfficerList()
 CriminalList()
 ConvictionSelect()
