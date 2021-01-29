@@ -1,5 +1,6 @@
 import { getWitnesses, useWitnesses } from "./WitnessDataProvider.js"
 import { Witness } from "./Witness.js"
+import { ShowWitnessButton } from "./WitnessButton.js"
 
 const eventHub = document.querySelector(".container") //specify the outer container as the event hub
 const targetContainer = document.querySelector(".peopleContainer")
@@ -26,5 +27,9 @@ const WitnessList = () => {
 eventHub.addEventListener("witnessToggleClicked", event => { //listen for the custom event from ConvictionSelect.js
     // if (event.detail.toggleTo === "showWitnesses") //checks that something other than the top box with no value was selected
         WitnessList()
+        .then(() => {
+            ShowWitnessButton()
+        })
+        return event
 }
 )
