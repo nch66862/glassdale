@@ -6,6 +6,7 @@ import { ConvictionSelect } from "../convictions/ConvictionSelect.js"
 import { OfficerSelect } from "../officers/OfficerSelect.js";
 
 let criminalArray = [] //create a variable to store my criminal array
+let criminalsContainer = document.querySelector(".criminalsContainer") //specify where I want the criminals to render
 
 export const CriminalList = () => {
   getCriminals() //an API call to get an array of criminal objects
@@ -31,6 +32,7 @@ eventHub.addEventListener("crimeChosen", event => { //listen for the custom even
       return matchingCriminal.conviction === convictionThatWasChosen.name
     }
     )
+    criminalsContainer = document.querySelector(".criminalsList") //specify where I want the criminals to render
     render(matchingCriminals) //put those filtered criminals on the web page
   }
 }
@@ -47,30 +49,37 @@ eventHub.addEventListener("officerChosen", event => { //listen for the custom ev
       return matchingCriminal.arrestingOfficer === officerThatWasChosen.name
     }
     )
+    criminalsContainer = document.querySelector(".criminalsList") //specify where I want the criminals to render
     render(matchingCriminals) //put those filtered criminals on the web page
   }
 }
 )
 
-const criminalsContainer = document.querySelector(".criminalsContainer") //specify where I want the criminals to render
 
 const render = criminalArray => { //puts the html structure in the correct element so it shows up on the web page
   let criminalsHTMLRepresentation = ""
   for (const criminal of criminalArray) { //iterates through each criminal object and builds an html element for each criminal
     criminalsHTMLRepresentation += Criminal(criminal)
   }
-  //put all of those elements to the DOM
-  criminalsContainer.innerHTML = `
-    <h3>Select a Criminal Filter</h3>
-    <div class="filters">
-      <div class="filter filters__crime"></div>
-      <p>or</p>
-      <div class="filter filters__incarceration"></div>
-      <p>or</p>
-      <div class="filter filters__officer"></div>
-    </div>
-    <h3>Glassdale Criminals</h3>
-    <section class="criminalsList">
-    ${criminalsHTMLRepresentation}
-    </section>`
+  if (criminalsContainer === document.querySelector(".criminalsContainer")) {
+    //put all of those elements to the DOM
+    criminalsContainer.innerHTML = `
+      <h3>Select a Criminal Filter</h3>
+      <div class="filters">
+        <div class="filter filters__crime"></div>
+        <p>or</p>
+        <div class="filter filters__incarceration"></div>
+        <p>or</p>
+        <div class="filter filters__officer"></div>
+      </div>
+      <h3>Glassdale Criminals</h3>
+      <section class="criminalsList">
+      ${criminalsHTMLRepresentation}
+      </section>`
+  }
+  else {
+    criminalsContainer.innerHTML = `
+      ${criminalsHTMLRepresentation}
+    `
+  }
 }
