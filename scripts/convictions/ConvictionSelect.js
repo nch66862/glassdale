@@ -4,17 +4,17 @@
 import { useConvictions } from "./ConvictionProvider.js" //the copy of the parsed returned array
 import { getConvictions } from "./ConvictionProvider.js" //The api data call to get convictions
 
-const contentTarget = document.querySelector(".filters__crime") // Get a reference to the DOM element where the <select> will be rendered
 
 export const ConvictionSelect = () => {
     getConvictions() // Trigger fetching the API data and loading it into application state
     .then( () => { //.then says wait for data to come back
-      const convictions = useConvictions() // Get all convictions from application state
-      render(convictions) //build out the select element HTML
+        const convictions = useConvictions() // Get all convictions from application state
+        render(convictions) //build out the select element HTML
     })
 }
 
 const render = convictionsCollection => {
+    const contentTarget = document.querySelector(".filters__crime") // Get a reference to the DOM element where the <select> will be rendered
     contentTarget.innerHTML = `
         <select class="dropdown" id="crimeSelect">
             <option value="0">Please select a crime...</option>

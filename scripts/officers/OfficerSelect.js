@@ -4,17 +4,17 @@
 import { useOfficers } from "./OfficerProvider.js" //the copy of the parsed returned array
 import { getOfficers } from "./OfficerProvider.js" //The api data call to get convictions
 
-const contentTarget = document.querySelector(".filters__officer") // Get a reference to the DOM element where the <select> will be rendered
 
 export const OfficerSelect = () => {
     getOfficers() // Trigger fetching the API data and loading it into application state
     .then( () => { //.then says wait for data to come back
-      const officers = useOfficers() // Get all convictions from application state
-      render(officers) //build out the select element HTML
+        const officers = useOfficers() // Get all convictions from application state
+        render(officers) //build out the select element HTML
     })
 }
 
 const render = officersCollection => {
+    const contentTarget = document.querySelector(".filters__officer") // Get a reference to the DOM element where the <select> will be rendered
     contentTarget.innerHTML = `
         <select class="dropdown" id="officerSelect">
             <option value="0">Please select an arresting Officer...</option>

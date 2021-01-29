@@ -2,6 +2,8 @@ import { getCriminals, useCriminals } from "./CriminalProvider.js"
 import { Criminal } from "./Criminal.js"
 import { useConvictions } from "../convictions/ConvictionProvider.js"
 import { getOfficers, useOfficers } from "../officers/OfficerProvider.js"
+import { ConvictionSelect } from "../convictions/ConvictionSelect.js"
+import { OfficerSelect } from "../officers/OfficerSelect.js";
 
 let criminalArray = [] //create a variable to store my criminal array
 
@@ -12,6 +14,8 @@ export const CriminalList = () => {
       render(criminalArray) //put the criminals on the web page
     }
     )
+    .then(() => ConvictionSelect())
+    .then(() => OfficerSelect())
 }
 
 const eventHub = document.querySelector(".container") //specify the outer container as the event hub
