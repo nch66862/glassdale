@@ -6,10 +6,10 @@ const targetContainer = document.querySelector(".peopleContainer")
 
 const WitnessList = () => {
     getWitnesses()
-    .then(() => {
-        const witnessArray = useWitnesses()
-        let witnessHTMLRepresentations = ""
-        for (const witness of witnessArray) {
+        .then(() => {
+            const witnessArray = useWitnesses()
+            let witnessHTMLRepresentations = ""
+            for (const witness of witnessArray) {
                 witnessHTMLRepresentations += Witness(witness)
             }
             targetContainer.innerHTML = `
@@ -24,6 +24,12 @@ const WitnessList = () => {
 }
 
 eventHub.addEventListener("showWitnessesClicked", event => { //listen for the custom event from ConvictionSelect.js
-        WitnessList()
+    WitnessList()
+    const customEvent = new CustomEvent("peopleContainerChanged", { //create a custom event.
+        detail: {
+            informationRendered: "Witnesses" //assigns the value specified in each option element to this variable officerThatWasChosen
+        }
+    })
+    eventHub.dispatchEvent(customEvent)
 }
 )

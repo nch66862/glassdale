@@ -46,7 +46,6 @@ const render = criminalArray => { //puts the html structure in the correct eleme
     ${criminalsHTMLRepresentation}
     `
   }
-  debugger
   const customEvent = new CustomEvent("peopleContainerChanged", { //create a custom event.
     detail: {
       informationRendered: "Criminals" //assigns the value specified in each option element to this variable officerThatWasChosen

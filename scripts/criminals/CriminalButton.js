@@ -13,3 +13,12 @@ eventHub.addEventListener("click", clickEvent => {
         eventHub.dispatchEvent(customEvent)
     }
 })
+
+eventHub.addEventListener("peopleContainerChanged", event => { //listen for the custom event from ConvictionSelect.js
+    const theWitnessButton = document.querySelector(".witnessToggle");
+    if (event.detail.informationRendered === "Witnesses") {
+        theWitnessButton.style.display = "none";
+    } else {
+        witnessButton.style.display = "block";
+    }
+})
