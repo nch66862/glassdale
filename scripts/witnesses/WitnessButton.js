@@ -19,6 +19,6 @@ eventHub.addEventListener("peopleContainerChanged", event => { //listen for the 
     if (event.detail.informationRendered === "Witnesses") {
         theWitnessButton.style.display = "none";
     } else {
-        witnessButton.style.display = "block";
+        theWitnessButton.style.display = "block";
     }
 })

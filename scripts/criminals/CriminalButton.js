@@ -15,10 +15,10 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 eventHub.addEventListener("peopleContainerChanged", event => { //listen for the custom event from ConvictionSelect.js
-    const theWitnessButton = document.querySelector(".witnessToggle");
-    if (event.detail.informationRendered === "Witnesses") {
-        theWitnessButton.style.display = "none";
+    const theCriminalButton = document.querySelector(".criminalToggle");
+    if (event.detail.informationRendered === "Criminals") {
+        theCriminalButton.style.display = "none";
     } else {
-        witnessButton.style.display = "block";
+        theCriminalButton.style.display = "block";
     }
 })

@@ -7,9 +7,11 @@ import "./criminals/CriminalAlibiList.js"
 import "./witnesses/WitnessList.js"
 import { ShowHeader } from "./header/Header.js";
 import { ShowWitnessButton } from "./witnesses/WitnessButton.js";
+import { ShowCriminalButton } from "./criminals/CriminalButton.js";
 
 ShowHeader()
 ShowWitnessButton()
+ShowCriminalButton()
 CriminalList()
 OfficerList()
 NoteForm ()
