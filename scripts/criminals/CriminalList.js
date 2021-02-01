@@ -4,6 +4,7 @@ import { useConvictions } from "../convictions/ConvictionProvider.js"
 import { getOfficers, useOfficers } from "../officers/OfficerProvider.js"
 import { ConvictionSelect } from "../convictions/ConvictionSelect.js"
 import { OfficerSelect } from "../officers/OfficerSelect.js";
+import { OfficerList } from "../officers/OfficerList.js"
 
 let criminalArray = [] //create a variable to store my criminal array
 let criminalsContainer = document.querySelector(".criminalsContainer") //specify where I want the criminals to render
@@ -56,38 +57,51 @@ const render = criminalArray => { //puts the html structure in the correct eleme
 
 /* EVENTS */
 
-  const eventHub = document.querySelector(".container") //specify the outer container as the event hub
-  
-  eventHub.addEventListener("crimeChosen", event => { //listen for the custom event from ConvictionSelect.js
-    if (event.detail.crimeThatWasChosen !== "0") { //checks that something other than the top box with no value was selected
-      const convictionsArray = useConvictions() // Get a copy of the array of convictions from the data provider
-      const convictionThatWasChosen = convictionsArray.find(convictionObj => { // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
-        return convictionObj.id === parseInt(event.detail.crimeThatWasChosen) //parseInt changes the string to a number so the data type matches. It was a string because if came from an HTML element. 
-      }
-      )
-      const matchingCriminals = criminalArray.filter(matchingCriminal => { //find the criminals that have the same conviction
-        return matchingCriminal.conviction === convictionThatWasChosen.name
-      }
-      )
-      criminalsContainer = document.querySelector(".criminalsList") //specify where I want the filtered criminals to render
-      render(matchingCriminals) //put those filtered criminals on the web page
+const eventHub = document.querySelector(".container") //specify the outer container as the event hub
+
+eventHub.addEventListener("crimeChosen", event => { //listen for the custom event from ConvictionSelect.js
+  if (event.detail.crimeThatWasChosen !== "0") { //checks that something other than the top box with no value was selected
+    const convictionsArray = useConvictions() // Get a copy of the array of convictions from the data provider
+    const convictionThatWasChosen = convictionsArray.find(convictionObj => { // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
+      return convictionObj.id === parseInt(event.detail.crimeThatWasChosen) //parseInt changes the string to a number so the data type matches. It was a string because if came from an HTML element. 
     }
-  }
-  )
-  
-  eventHub.addEventListener("officerChosen", event => { //listen for the custom event from OfficerSelect.js
-    if (event.detail.officerThatWasChosen !== "0") { //checks that something other than the top box with no value was selected
-      const officerArray = useOfficers() // Get a copy of the array of convictions from the data provider
-      const officerThatWasChosen = officerArray.find(officerObj => { // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
-        return officerObj.id === parseInt(event.detail.officerThatWasChosen) //parseInt changes the string to a number so the data type matches. It was a string because if came from an HTML element. 
-      }
-      )
-      const matchingCriminals = criminalArray.filter(matchingCriminal => { //find the criminals that have the same arresting officer
-        return matchingCriminal.arrestingOfficer === officerThatWasChosen.name
-      }
-      )
-      criminalsContainer = document.querySelector(".criminalsList") //specify where I want the filtered criminals to render
-      render(matchingCriminals) //put those filtered criminals on the web page
+    )
+    const matchingCriminals = criminalArray.filter(matchingCriminal => { //find the criminals that have the same conviction
+      return matchingCriminal.conviction === convictionThatWasChosen.name
     }
+    )
+    criminalsContainer = document.querySelector(".criminalsList") //specify where I want the filtered criminals to render
+    render(matchingCriminals) //put those filtered criminals on the web page
   }
-  )
+}
+)
+
+eventHub.addEventListener("officerChosen", event => { //listen for the custom event from OfficerSelect.js
+  if (event.detail.officerThatWasChosen !== "0") { //checks that something other than the top box with no value was selected
+    const officerArray = useOfficers() // Get a copy of the array of convictions from the data provider
+    const officerThatWasChosen = officerArray.find(officerObj => { // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
+      return officerObj.id === parseInt(event.detail.officerThatWasChosen) //parseInt changes the string to a number so the data type matches. It was a string because if came from an HTML element. 
+    }
+    )
+    const matchingCriminals = criminalArray.filter(matchingCriminal => { //find the criminals that have the same arresting officer
+      return matchingCriminal.arrestingOfficer === officerThatWasChosen.name
+    }
+    )
+    criminalsContainer = document.querySelector(".criminalsList") //specify where I want the filtered criminals to render
+    render(matchingCriminals) //put those filtered criminals on the web page
+  }
+}
+)
+
+eventHub.addEventListener("showCriminalsClicked", event => { //listen for the custom event from CriminalButton.js
+  const targetContainer = document.querySelector(".peopleContainer")
+  targetContainer.innerHTML = `
+    <article class="criminalsContainer"></article>
+    <article class="officersContainer"></article>
+    `
+  criminalsContainer = document.querySelector(".criminalsContainer")
+  CriminalList()
+  OfficerList()
+}
+)
+
