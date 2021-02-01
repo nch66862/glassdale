@@ -1,10 +1,9 @@
 import { getOfficers, useOfficers } from "./OfficerProvider.js"
 import { Officer } from "./Officer.js"
 
-const officersContainer = document.querySelector(".officersContainer")
 
 export const OfficerList = () => {
-
+  const officersContainer = document.querySelector(".officersContainer")
   getOfficers()
     .then(() => {
       const officerArray = useOfficers()

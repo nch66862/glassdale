@@ -4,6 +4,7 @@ import { useConvictions } from "../convictions/ConvictionProvider.js"
 import { getOfficers, useOfficers } from "../officers/OfficerProvider.js"
 import { ConvictionSelect } from "../convictions/ConvictionSelect.js"
 import { OfficerSelect } from "../officers/OfficerSelect.js";
+import { OfficerList } from "../officers/OfficerList.js"
 
 let criminalArray = [] //create a variable to store my criminal array
 let criminalsContainer = document.querySelector(".criminalsContainer") //specify where I want the criminals to render
@@ -18,6 +19,43 @@ export const CriminalList = () => {
     .then(() => ConvictionSelect()) //load these after the target HTML elements have rendered
     .then(() => OfficerSelect()) //load these after the target HTML elements have rendered
 }
+
+
+const render = criminalArray => { //puts the html structure in the correct element so it shows up on the web page
+  let criminalsHTMLRepresentation = ""
+  for (const criminal of criminalArray) { //iterates through each criminal object and builds an html element for each criminal
+    criminalsHTMLRepresentation += Criminal(criminal)
+  }
+  if (criminalsContainer === document.querySelector(".criminalsContainer")) { //this conditional runs on page load
+    //put all of those elements to the DOM
+    criminalsContainer.innerHTML = `
+    <h3>Select a Criminal Filter</h3>
+    <div class="filters">
+    <div class="filter filters__crime"></div>
+    <p>or</p>
+    <div class="filter filters__incarceration"></div>
+    <p>or</p>
+    <div class="filter filters__officer"></div>
+    </div>
+    <h3>Glassdale Criminals</h3>
+    <section class="criminalsList">
+    ${criminalsHTMLRepresentation}
+    </section>`
+  }
+  else {// this conditional should run after filtering
+    criminalsContainer.innerHTML = `
+    ${criminalsHTMLRepresentation}
+    `
+  }
+  const customEvent = new CustomEvent("peopleContainerChanged", { //create a custom event.
+    detail: {
+      informationRendered: "Criminals" //assigns the value specified in each option element to this variable officerThatWasChosen
+    }
+  })
+  eventHub.dispatchEvent(customEvent)
+}
+
+/* EVENTS */
 
 const eventHub = document.querySelector(".container") //specify the outer container as the event hub
 
@@ -55,31 +93,15 @@ eventHub.addEventListener("officerChosen", event => { //listen for the custom ev
 }
 )
 
-
-const render = criminalArray => { //puts the html structure in the correct element so it shows up on the web page
-  let criminalsHTMLRepresentation = ""
-  for (const criminal of criminalArray) { //iterates through each criminal object and builds an html element for each criminal
-    criminalsHTMLRepresentation += Criminal(criminal)
-  }
-  if (criminalsContainer === document.querySelector(".criminalsContainer")) { //this conditional runs on page load
-    //put all of those elements to the DOM
-    criminalsContainer.innerHTML = `
-      <h3>Select a Criminal Filter</h3>
-      <div class="filters">
-        <div class="filter filters__crime"></div>
-        <p>or</p>
-        <div class="filter filters__incarceration"></div>
-        <p>or</p>
-        <div class="filter filters__officer"></div>
-      </div>
-      <h3>Glassdale Criminals</h3>
-      <section class="criminalsList">
-      ${criminalsHTMLRepresentation}
-      </section>`
-  }
-  else {// this conditional should run after filtering
-    criminalsContainer.innerHTML = `
-      ${criminalsHTMLRepresentation}
+eventHub.addEventListener("showCriminalsClicked", event => { //listen for the custom event from CriminalButton.js
+  const targetContainer = document.querySelector(".peopleContainer")
+  targetContainer.innerHTML = `
+    <article class="criminalsContainer"></article>
+    <article class="officersContainer"></article>
     `
-  }
+  criminalsContainer = document.querySelector(".criminalsContainer")
+  CriminalList()
+  OfficerList()
 }
+)
+
