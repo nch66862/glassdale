@@ -23,7 +23,7 @@ const WitnessList = () => {
         })
 }
 
-eventHub.addEventListener("witnessToggleClicked", event => { //listen for the custom event from ConvictionSelect.js
+eventHub.addEventListener("showWitnessesClicked", event => { //listen for the custom event from ConvictionSelect.js
         WitnessList()
 }
 )
