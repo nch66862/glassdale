@@ -10,19 +10,21 @@ const render = () => {
         <input type="date" name="data-date" id="note-date">
         <p>Subject</p>
         <input type="text" id="note-subject" name="data-subject"></input>
-        <p>Relevant Suspects</p>
-        <input type="text" id="note-suspects" name="data-suspects"></input>
+        <p>Relevant Criminal</p>
+        <select id="note-criminal" class="criminalSelect">
+            <option value="${ criminal.id }">${ criminal.name }</option>
+        </select>
         <p>Notes</p>
         <input type="text" name="data-notes" id="note-text">
         <button id="saveNote">Save Note</button>
-    </form>
-    `
-}
-
-export const NoteForm = () => {
-    render()
-}
-
+        </form>
+        `
+    }
+    
+    export const NoteForm = () => {
+        render()
+    }
+    
 // Handle browser-generated click event in component
 const eventHub = document.querySelector(".container") //define what the eventHub will be (needs to be the same across the application)
 eventHub.addEventListener("click", clickEvent => {

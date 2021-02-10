@@ -16,8 +16,9 @@ export const CriminalList = () => {
       render(criminalArray) //put the criminals on the web page
     }
     )
-    .then(() => ConvictionSelect()) //load these after the target HTML elements have rendered
-    .then(() => OfficerSelect()) //load these after the target HTML elements have rendered
+    .then(ConvictionSelect) //load these after the target HTML elements have rendered
+    .then(OfficerSelect) //load these after the target HTML elements have rendered
+    return true
 }
 
 
