@@ -1,3 +1,11 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "date": "2021-02-11",
+      "subject": "test",
+      "criminalId": 1,
+      "note": "this aint gonna work",
+      "id": 1
+    }
+  ]
 }
