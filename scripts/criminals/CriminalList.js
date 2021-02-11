@@ -21,7 +21,7 @@ export const CriminalList = () => {
     criminalArray = useCriminals() //after getting the data (.then) get the array and put it in my local variable criminalArray
     facilityArray = useFacilities()
     criminalFacilitiesArray = useCriminalFacilities()
-    render(criminalArray) //put the criminals on the web page
+    render(criminalArray, facilityArray, criminalFacilitiesArray) //put the criminals on the web page
   }
   )
   .then(ConvictionSelect) //load these after the target HTML elements have rendered
@@ -29,11 +29,16 @@ export const CriminalList = () => {
 }
 
 
-const render = criminalArray => { //puts the html structure in the correct element so it shows up on the web page
+const render = (arrayOfAllCriminals, arrayOfAllFacilities, criminalFacilitiesRelationshipArray) => { //puts the html structure in the correct element so it shows up on the web page
   let criminalsHTMLRepresentation = ""
-  for (const criminal of criminalArray) { //iterates through each criminal object and builds an html element for each criminal
-    criminalsHTMLRepresentation += Criminal(criminal)
-  }
+  criminalsHTMLRepresentation = arrayOfAllCriminals.map(criminalObj => {
+    const facilityRelationshipForThisCriminal = criminalFacilitiesRelationshipArray.filter(relationships => relationships.criminalId === criminalObj.id)
+    const facilities = facilityRelationshipForThisCriminal.map(relationshipObj => {
+      const matchingFacilityObject = arrayOfAllFacilities.find(facility => facility.id === relationshipObj.facilityId)
+      return matchingFacilityObject
+    })
+    return Criminal(criminalObj, facilities)
+  }).join("")
   if (criminalsContainer === document.querySelector(".criminalsContainer")) { //this conditional runs on page load
     //put all of those elements to the DOM
     criminalsContainer.innerHTML = `
