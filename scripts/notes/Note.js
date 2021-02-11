@@ -1,5 +1,5 @@
 export const NoteHTMLConverter = (noteObject, criminalArray) => {
-    const relatedCriminal = criminalArray.find(criminal => criminal.id === noteObject.criminalID)
+    const relatedCriminal = criminalArray.find(criminal => criminal.id === noteObject.criminalId)
     return `
         <section class="note" id="noteID=${noteObject.id}">
             <div class="note__date">Timestamp: ${ new Date(noteObject.date).toLocaleDateString('en-US', { timeZone: "UTC" })  }</div>

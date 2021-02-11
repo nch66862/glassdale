@@ -37,7 +37,7 @@ eventHub.addEventListener("click", clickEvent => {
         const newNote = {
             date: document.getElementById("note-date").value,
             subject: document.getElementById("note-subject").value,
-            criminalID: parseInt(document.getElementById("note-criminal").value),
+            criminalId: parseInt(document.getElementById("note-criminal").value),
             note: document.getElementById("note-text").value
         }
         // Change API state and application state
