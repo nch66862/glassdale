@@ -1,4 +1,4 @@
-import { getNotes, useNotes } from "./NoteDataProvider.js";
+import { deleteNote, getNotes, useNotes } from "./NoteDataProvider.js";
 import { NoteHTMLConverter } from "./Note.js";
 import { useCriminals } from "../criminals/CriminalProvider.js";
 
@@ -17,8 +17,15 @@ eventHub.addEventListener("noteStateChanged", customEvent => {
     }
 })
 
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteNote--")) {
+        const [prefix, id] = clickEvent.target.id.split("--")
+        deleteNote(id)
+    }
+})
+
 const render = (noteArray, criminalArray) => {
-    const allNotesConvertedToStrings = noteArray.map( note => {
+    const allNotesConvertedToStrings = noteArray.map(note => {
         return NoteHTMLConverter(note, criminalArray)
     }).join("")
     contentTarget.innerHTML = allNotesConvertedToStrings
