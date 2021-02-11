@@ -10,14 +10,14 @@ let criminalArray = [] //create a variable to store my criminal array
 let criminalsContainer = document.querySelector(".criminalsContainer") //specify where I want the criminals to render
 
 export const CriminalList = () => {
-  getCriminals() //an API call to get an array of criminal objects
+  return getCriminals() //an API call to get an array of criminal objects
     .then(() => {
       criminalArray = useCriminals() //after getting the data (.then) get the array and put it in my local variable criminalArray
       render(criminalArray) //put the criminals on the web page
     }
     )
-    .then(() => ConvictionSelect()) //load these after the target HTML elements have rendered
-    .then(() => OfficerSelect()) //load these after the target HTML elements have rendered
+    .then(ConvictionSelect) //load these after the target HTML elements have rendered
+    .then(OfficerSelect) //load these after the target HTML elements have rendered
 }
 
 
