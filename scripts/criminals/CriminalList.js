@@ -84,7 +84,7 @@ eventHub.addEventListener("crimeChosen", event => { //listen for the custom even
     }
     )
     criminalsContainer = document.querySelector(".criminalsList") //specify where I want the filtered criminals to render
-    render(matchingCriminals) //put those filtered criminals on the web page
+    render(matchingCriminals, facilityArray, criminalFacilitiesArray) //put those filtered criminals on the web page
   }
 }
 )
@@ -101,7 +101,7 @@ eventHub.addEventListener("officerChosen", event => { //listen for the custom ev
     }
     )
     criminalsContainer = document.querySelector(".criminalsList") //specify where I want the filtered criminals to render
-    render(matchingCriminals) //put those filtered criminals on the web page
+    render(matchingCriminals, facilityArray, criminalFacilitiesArray) //put those filtered criminals on the web page
   }
 }
 )

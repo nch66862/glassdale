@@ -8,7 +8,7 @@ export const Criminal = (criminalObj, arrayOfRelatedFacilities) => { //takes a c
                 <p>Arrested by: ${criminalObj.arrestingOfficer}</p>
                 <p>Incarcerated between: ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')} and ${new Date(criminalObj.incarceration.end).toLocaleDateString('en-US')}</p>
                 <div>
-                    <h2>Facilities</h2>
+                    <p>Facilities:</p>
                     <ul>
                         ${arrayOfRelatedFacilities.map(facility => `<li>${facility.facilityName}</li>`).join("")}
                     </ul>
