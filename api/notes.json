@@ -1,18 +1,11 @@
 {
   "notes": [
     {
-      "date": "2021-01-28",
-      "subject": "Nick Carver",
-      "suspects": "None",
-      "note": "This is my first note.",
+      "date": "2021-02-11",
+      "subject": "Long terms",
+      "criminalID": "36",
+      "note": "23 years for tax evasion...",
       "id": 1
-    },
-    {
-      "date": "2021-01-07",
-      "subject": "test",
-      "suspects": "myself",
-      "note": "this aint gonna work",
-      "id": 2
     }
   ]
 }
