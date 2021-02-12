@@ -4,7 +4,6 @@ import { useConvictions } from "../convictions/ConvictionProvider.js"
 import { useOfficers } from "../officers/OfficerProvider.js"
 import { ConvictionSelect } from "../convictions/ConvictionSelect.js"
 import { OfficerSelect } from "../officers/OfficerSelect.js";
-import { OfficerList } from "../officers/OfficerList.js"
 import { getFacilities, useFacilities } from "../facilities/FacilityProvider.js"
 import { getCriminalFacilities, useCriminalFacilities } from "../facilities/CriminalFacilityProvider.js"
 
@@ -110,11 +109,9 @@ eventHub.addEventListener("showCriminalsClicked", event => { //listen for the cu
   const targetContainer = document.querySelector(".peopleContainer")
   targetContainer.innerHTML = `
     <article class="criminalsContainer"></article>
-    <article class="officersContainer"></article>
     `
   criminalsContainer = document.querySelector(".criminalsContainer")
   CriminalList()
-  OfficerList()
 }
 )
 
