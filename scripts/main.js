@@ -8,10 +8,12 @@ import "./witnesses/WitnessList.js"
 import { ShowHeader } from "./header/Header.js";
 import { ShowWitnessButton } from "./witnesses/WitnessButton.js";
 import { ShowCriminalButton } from "./criminals/CriminalButton.js";
+import { ShowFacilitiesButton } from "./facilities/ShowFacilitiesButton.js";
 
 ShowHeader()
 ShowWitnessButton()
 ShowCriminalButton()
+ShowFacilitiesButton()
 OfficerList()
 ShowNoteButton()
 CriminalList()

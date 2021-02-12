@@ -1,4 +1,4 @@
-const witnessButton = '<button class="witnessToggle">Show Witnesses</button>'
+const witnessButton = '<button class="witnessToggle">Witness Data</button>'
 
 export const ShowWitnessButton = () => {
     const contentTarget = document.querySelector("nav")
