@@ -28,6 +28,14 @@ body {
     margin: 0;
 }
 
+nav {
+    display: flex;
+}
+
+.navButton {
+    margin: 10px;
+}
+
 p {
     margin: 5px;
 }
@@ -62,7 +70,7 @@ p {
 }
 
 .alibiContainer {
-
+    display: flex;
 }
 
 .criminal__details {
@@ -99,4 +107,16 @@ p {
 
 .deleteNoteButton {
     margin: 10px;
+}
+
+.facilityList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.facilityCard {
+    border: solid black 1px;
+    border-radius: 3%;
+    flex-basis: 45%;
+    margin: 5px;
 }
