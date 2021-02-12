@@ -1,3 +1,5 @@
+import { useCriminals } from "../criminals/CriminalProvider.js"
+import { useCriminalFacilities } from "./CriminalFacilityProvider.js"
 import { Facility } from "./Facility.js"
 import { getFacilities, useFacilities } from "./FacilityProvider.js"
 
@@ -8,10 +10,14 @@ const FacilityList = () => {
     getFacilities()
         .then(() => {
             const facilityArray = useFacilities()
+            const criminalFacilitesRelationships = useCriminalFacilities()
+            const criminalArray = useCriminals()
             const facilityHTMLRepresentations = facilityArray.map(facility => {
-
-                
-
+                const criminalsInFacility = criminalFacilitesRelationships.filter(relationshipObj => relationshipObj.facilityId === facility.id)
+                const criminalsInside = criminalsInFacility.map(crimFacRel => {
+                    const matchingCriminal = criminalArray.find(criminal => criminal.id === crimFacRel.criminalId)
+                    return matchingCriminal.name
+                })
                 return Facility(facility, criminalsInside)
             }).join("")
             targetContainer.innerHTML = `

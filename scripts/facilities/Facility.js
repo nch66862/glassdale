@@ -1,6 +1,11 @@
-export const Facility = (FacilityObj) => {
+export const Facility = (FacilityObj, arrayOfCriminalNames) => {
     return `
-        <h6 class="witness--${FacilityObj.id}">${FacilityObj.name}</h6>
-        <p>${FacilityObj.statements}</p>
+        <h4 class="facility--${FacilityObj.id}">${FacilityObj.facilityName}</h6>
+        <p>Security Level: ${FacilityObj.securityLevel}</p>
+        <p>Capacity: ${FacilityObj.capacity} inmates</p>
+        <p>Contained Glassdale Criminals:</p>
+        <ul>
+            ${arrayOfCriminalNames.map(name => `<li>${name}</li>`).join("")}
+        </ul>
     `
 }  
