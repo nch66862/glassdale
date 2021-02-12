@@ -1,4 +1,4 @@
-const facilitiesButton = '<button class="facilityToggle">Facilities Data</button>'
+const facilitiesButton = '<button id="facilityToggle" class="navButton">Facilities Data</button>'
 
 export const ShowFacilitiesButton = () => {
     const contentTarget = document.querySelector("nav")
@@ -8,7 +8,7 @@ export const ShowFacilitiesButton = () => {
 const eventHub = document.querySelector(".container") //specify the outer container as the event hub
 
 eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.className === "facilityToggle") {
+    if (clickEvent.target.id === "facilityToggle") {
         const customEvent = new CustomEvent("showFacilitiesClicked")
         eventHub.dispatchEvent(customEvent)
     }

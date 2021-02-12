@@ -28,6 +28,14 @@ body {
     margin: 0;
 }
 
+nav {
+    display: flex;
+}
+
+.navButton {
+    margin: 10px;
+}
+
 p {
     margin: 5px;
 }
