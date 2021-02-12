@@ -120,3 +120,15 @@ p {
     flex-basis: 45%;
     margin: 5px;
 }
+
+.officerList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.officerCard {
+    border: solid black 1px;
+    border-radius: 3%;
+    flex-basis: 45%;
+    margin: 5px;
+}
