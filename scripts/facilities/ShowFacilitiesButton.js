@@ -15,7 +15,7 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 eventHub.addEventListener("peopleContainerChanged", event => { //listen for the custom event from ConvictionSelect.js
-    const theFacilitiesButton = document.querySelector(".facilityToggle");
+    const theFacilitiesButton = document.querySelector("#facilityToggle");
     if (event.detail.informationRendered === "Facilities") {
         theFacilitiesButton.style.display = "none";
     } else {

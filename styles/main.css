@@ -108,3 +108,15 @@ p {
 .deleteNoteButton {
     margin: 10px;
 }
+
+.facilityList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.facilityCard {
+    border: solid black 1px;
+    border-radius: 3%;
+    flex-basis: 45%;
+    margin: 5px;
+}

@@ -21,12 +21,12 @@ const FacilityList = () => {
                 return Facility(facility, criminalsInside)
             }).join("")
             targetContainer.innerHTML = `
-        <article class="facilityContainer">
+        <section class="facilityContainer">
             <h3>Facility Database</h3>
             <section class="facilityList">
                 ${facilityHTMLRepresentations}
             </section>
-        </article>
+        </section>
         `
         })
 }
