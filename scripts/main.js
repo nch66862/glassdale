@@ -9,11 +9,13 @@ import { ShowHeader } from "./header/Header.js";
 import { ShowWitnessButton } from "./witnesses/WitnessButton.js";
 import { ShowCriminalButton } from "./criminals/CriminalButton.js";
 import { ShowFacilitiesButton } from "./facilities/ShowFacilitiesButton.js";
+import { ShowOfficersButton } from "./officers/ShowOfficersButton.js";
 
 ShowHeader()
 ShowWitnessButton()
 ShowCriminalButton()
 ShowFacilitiesButton()
+ShowOfficersButton()
 ShowNoteButton()
 CriminalList()
     .then(NoteForm)
