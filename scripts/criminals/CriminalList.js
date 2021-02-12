@@ -114,7 +114,6 @@ eventHub.addEventListener("showCriminalsClicked", event => { //listen for the cu
     `
   criminalsContainer = document.querySelector(".criminalsContainer")
   CriminalList()
-  OfficerList()
 }
 )
 
