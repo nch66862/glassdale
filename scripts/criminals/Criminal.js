@@ -13,8 +13,8 @@ export const Criminal = (criminalObj, arrayOfRelatedFacilities) => { //takes a c
                         ${arrayOfRelatedFacilities.map(facility => `<li>${facility.facilityName}</li>`).join("")}
                     </ul>
                 </div>
-                <button class="associateButton" id="associates--${criminalObj.id}">Associate Alibis</button>
             </div>
+            <button class="associateButton" id="associates--${criminalObj.id}">Associate Alibis</button>
         </article>
     `
 }

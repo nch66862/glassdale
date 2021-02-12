@@ -7,17 +7,17 @@ const render = () => {
     const criminalArray = useCriminals()
     contentTarget.innerHTML = `
     <form class="notesForm" action="">
-    <h3>Make a Note</h3>
-    <label for="note-date">Date:</label>
+    <h3 class="noteHeader">Make a Note</h3>
+    <label for="date">Date:</label>
     <input type="date" name="data-date" id="note-date">
-    <p>Subject</p>
+    <label for="subject">Subject:</label>
     <input type="text" id="note-subject" name="data-subject"></input>
-    <p>Relevant Criminal</p>
+    <label for="suspect">Suspect:</label>
     <select id="note-criminal" class="criminalSelect">
     <option value="0">Pick a Criminal...</option>
     ${criminalArray.map(criminal => `<option value="${ criminal.id }">${ criminal.name }</option>`).join("")}
     </select>
-    <p>Notes</p>
+    <label for="text">Note:</label>
     <input type="text" name="data-notes" id="note-text">
     <button id="saveNote">Save Note</button>
     </form>
