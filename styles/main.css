@@ -62,7 +62,7 @@ p {
 }
 
 .alibiContainer {
-
+    display: flex;
 }
 
 .criminal__details {
