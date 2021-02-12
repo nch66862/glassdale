@@ -54,6 +54,7 @@ p {
     border: white solid 1px;
     background-color: white;
     border-radius: 2%;
+    padding: 5px;
 }
 
 .noteListContainer {
@@ -81,4 +82,21 @@ p {
 
 #showNotes {
     margin: 5px;
+}
+
+.notesForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.noteHeader {
+    align-self: center;
+}
+
+.noteData {
+    margin: 3px;
+}
+
+.deleteNoteButton {
+    margin: 10px;
 }

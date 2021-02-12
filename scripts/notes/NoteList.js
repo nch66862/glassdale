@@ -28,7 +28,10 @@ const render = (noteArray, criminalArray) => {
     const allNotesConvertedToStrings = noteArray.map(note => {
         return NoteHTMLConverter(note, criminalArray)
     }).join("")
-    contentTarget.innerHTML = allNotesConvertedToStrings
+    contentTarget.innerHTML = `
+    <h3>Notes History</h3>
+    ${allNotesConvertedToStrings}
+    `
 }
 
 export const NoteList = () => {

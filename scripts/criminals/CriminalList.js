@@ -42,7 +42,7 @@ const render = (arrayOfAllCriminals, arrayOfAllFacilities, criminalFacilitiesRel
   if (criminalsContainer === document.querySelector(".criminalsContainer")) { //this conditional runs on page load
     //put all of those elements to the DOM
     criminalsContainer.innerHTML = `
-    <h3>Select a Criminal Filter</h3>
+    <h4>Select a Criminal Filter</h4>
     <div class="filters">
     <div class="filter filters__crime"></div>
     <p>or</p>
@@ -50,7 +50,7 @@ const render = (arrayOfAllCriminals, arrayOfAllFacilities, criminalFacilitiesRel
     <p>or</p>
     <div class="filter filters__officer"></div>
     </div>
-    <h3>Glassdale Criminals</h3>
+    <h3>Glassdale Criminal Database</h3>
     <section class="criminalsList">
     ${criminalsHTMLRepresentation}
     </section>`
